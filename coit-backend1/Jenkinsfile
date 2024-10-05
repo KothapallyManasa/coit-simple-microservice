@@ -16,7 +16,7 @@ pipeline {
         stage('docker-push') {
             steps {
                 sh 'echo "pushing docker image"'
-                #sh 'docker push mkothapally/coit-backend1:v2'
+                //sh 'docker push mkothapally/coit-backend1:v2'
             }
     }
 }
