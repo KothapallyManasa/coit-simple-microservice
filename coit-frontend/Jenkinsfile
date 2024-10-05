@@ -9,7 +9,7 @@ pipeline {
         }
         stage('docker-build') {
             steps {
-               sh 'cd coit-frontend && docker build mkothapally/coit-frontend:v1.4 -f Dockerfile-multistage .'
+               sh 'cd coit-frontend && docker build mkothapally/coit-frontend:v1.4 -t Dockerfile-multistage .'
                sh 'docker images' 
             }
         }
