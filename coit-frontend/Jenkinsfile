@@ -1,16 +1,39 @@
-pipeline {
+pipeline{
     agent any
-
-    stages {
-        stage('Build') {
-            steps {
-               sh 'cd coit-frontend && docker build -t mkothapally/coit-backend1:v1 -f Dockerfile-multistage .'
+    stages{
+        stage("Build"){
+            steps{
+                sh 'cd coit-frontend && docker build -t mkothapally/coit-frontend:v1 -f Dockerfile-multistage .'
             }
         }
-        stage('docker-push') {
-            steps {
-                sh 'docker push mkothapally/coit-backend1:v1'
+        stage("Docker Push"){
+            steps{
+                sh 'docker push mkothapally/coit-frontend:v1'
+                // sh "sudo apt-update && sudo apt-get install -y apache2"
             }
+        }
+        // stage("Deploy"){
+        //     steps{
+        //         sh "cd coit-frontend && cp build/* /var/www/html/"
+        //     }
+        // }
+        
     }
-}
+   // post{
+        // success{
+        //     archiveArtifacts artifacts: '**/build', followSymlinks: false
+        // }
+        // failure{
+        //     emailext body: '''Jenkins has failed to build the Job. Please find the information below.
+
+        //                     Name of the Job: ${JOB_NAME}
+        //                     Build that failed: ${BUILD_NUMBER}
+
+        //                     Please check the logs at ${BUILD_URL}
+
+
+        //                     Thanks
+        //                     Jenkins''', subject: 'Failed ${JOB_NAME}', to: 'basil@coit.io'
+        // }
+   // }
 }
