@@ -21,10 +21,5 @@ pipeline {
                 sh 'docker push mkothapally/coit-backend1:v2.2'
             }
     }
-}
-  post {
-    success {
-      mail to: kothapallymanasa@gmail.com.com, subject: "The Pipeline success"
-    }
-  }  
+} 
 }
