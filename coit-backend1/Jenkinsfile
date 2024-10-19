@@ -24,7 +24,7 @@ pipeline {
 }
   post {
     success {
-      mail to: kothapallymanasa@gmail.com.com, subject: ‘The Pipeline success :(‘
+      mail to: kothapallymanasa@gmail.com.com, subject: "The Pipeline success"
     }
   }  
 }
